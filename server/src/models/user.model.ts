@@ -11,7 +11,7 @@ interface IUser {
     skills: string[];
     resume: string;
     resumeOriginalName: string;
-    experience: Array<mongoose.Types.ObjectId>;
+    company: mongoose.Types.ObjectId | string;
     profilePhoto: string;
   }
 }
@@ -27,7 +27,7 @@ const userSchema = new Schema<IUser>({
     skills:[{type:String}],
     resume:{type:String},
     resumeOriginalName:{type:String},
-    experience:{type:mongoose.Schema.Types.ObjectId, ref:'Company'}, 
+    company:{type:mongoose.Schema.Types.ObjectId, ref:'Company'}, 
     profilePhoto:{
         type:String,
         default:""
