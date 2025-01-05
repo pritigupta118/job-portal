@@ -1,7 +1,7 @@
 import mongoose, {Schema} from "mongoose";
 
 interface ICompany {
-  name: string;
+  companyName: string;
   description: string;
   website: string;
   location: string;
@@ -10,7 +10,7 @@ interface ICompany {
 }
 
 const companySchema = new Schema<ICompany>({
-  name:{
+    companyName:{
       type:String,
       required:true,
       unique:true
