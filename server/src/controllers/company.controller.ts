@@ -2,7 +2,7 @@ import { Response } from "express";
 import { Company } from "../models/company.model";
 import { AuthRequest } from "../middlewares/verifyToken";
 
-export const registerCompany = async (req: AuthRequest, res: Response) => {
+export const registerCompany = async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     const { companyName } = req.body;
     if (!companyName) {
@@ -27,7 +27,7 @@ export const registerCompany = async (req: AuthRequest, res: Response) => {
   }
 }
 
-export const getCompany = async (req: AuthRequest, res: Response) => {
+export const getCompany = async (req: AuthRequest, res: Response): Promise<any>  => {
   try {
     const userId = req._id
     const companies = await Company.find({ userId })
@@ -43,7 +43,7 @@ export const getCompany = async (req: AuthRequest, res: Response) => {
 
 }
 
-export const getCompnyById = async (req: AuthRequest, res: Response) => {
+export const getCompnyById = async (req: AuthRequest, res: Response): Promise<any> => {
  try {
    const {id} = req.params
     const company = await Company.findById(id)
@@ -59,7 +59,7 @@ export const getCompnyById = async (req: AuthRequest, res: Response) => {
 
 }
 
-export const updateCompany = async (req: AuthRequest, res: Response) => {
+export const updateCompany = async (req: AuthRequest, res: Response): Promise<any> => {
 try {
     const {companyName, description,website,location,logo}= req.body
     const {id} = req.params

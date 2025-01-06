@@ -4,6 +4,7 @@ import {config} from 'dotenv';
 import { dbConnect } from './utils/dbConnect';
 import userRouter from './routes/user.router';
 import cookieParser from 'cookie-parser';
+import companyRouter from './routes/company.router';
 
 const app = express();
 
@@ -19,6 +20,7 @@ config();
 
 
 app.use('/user', userRouter);
+app.use('/company', companyRouter);
 
 dbConnect();
 
