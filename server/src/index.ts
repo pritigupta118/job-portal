@@ -1,10 +1,11 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import cors from 'cors';
 import {config} from 'dotenv';
 import { dbConnect } from './utils/dbConnect';
 import userRouter from './routes/user.router';
 import cookieParser from 'cookie-parser';
 import companyRouter from './routes/company.router';
+import jobRouter from './routes/job.router';
 
 const app = express();
 
@@ -21,6 +22,7 @@ config();
 
 app.use('/user', userRouter);
 app.use('/company', companyRouter);
+app.use("/job", jobRouter)
 
 dbConnect();
 

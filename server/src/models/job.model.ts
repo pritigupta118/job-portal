@@ -3,20 +3,21 @@ import mongoose, { Schema } from 'mongoose';
 export interface IJob {
   title: string;
   description: string;
-  requierments: string[];
+  requirements: string[];
   experienceLevel: number;
+  location: string;
+  jobType: string;
   position: string;
   company: mongoose.Types.ObjectId | string;
   salary: number;
   created_by: mongoose.Types.ObjectId | string;
   applications: Array<mongoose.Types.ObjectId>;
-  isRemote: boolean;
 }
 
 const JobSchema = new Schema<IJob>({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  requierments: [{ type: String }],
+  requirements: [{ type: String }],
   experienceLevel: { type: Number, required: true },
   position: { type: String, required: true },
   company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company',required: true },
@@ -28,7 +29,10 @@ const JobSchema = new Schema<IJob>({
         ref: 'Application',
     }
 ],
-  isRemote: { type: Boolean, default: false }
+  location: { type: String, required: true },
+  jobType: { type: String, required: true },
+}, {
+  timestamps: true,
 });
 
 export const Job = mongoose.model('Job', JobSchema);
