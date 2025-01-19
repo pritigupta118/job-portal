@@ -6,6 +6,7 @@ import userRouter from './routes/user.router';
 import cookieParser from 'cookie-parser';
 import companyRouter from './routes/company.router';
 import jobRouter from './routes/job.router';
+import applicationRouter from './routes/application.router';
 
 const app = express();
 
@@ -22,7 +23,8 @@ config();
 
 app.use('/user', userRouter);
 app.use('/company', companyRouter);
-app.use("/job", jobRouter)
+app.use("/job", jobRouter);
+app.use("/application", applicationRouter);
 
 dbConnect();
 
