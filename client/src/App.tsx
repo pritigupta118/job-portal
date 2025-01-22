@@ -1,9 +1,12 @@
+import Navbar from "./components/shared/Navbar"
 
 
 function App() {
 
   return (
- <div className="text-red-600">Hello, this is priti </div>
+    <div className="bg-black w-full h-screen">
+      <Navbar />
+    </div>
   )
 }
 
