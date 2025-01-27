@@ -20,11 +20,11 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-md" : "bg-gradient-to-r from-purple-900 to-indigo-800"}`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-md" : "bg-black/80 backdrop-blur-md border-b border-white border-opacity-10"}`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
-          <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500">
             <Link to="/" className="transition-opacity">
               JobPortal
             </Link>
@@ -51,7 +51,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                 to="/signin"
+                 to="/login"
                   className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors"
                 >
                   <LogIn size={18} />
@@ -109,12 +109,12 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/signin"
+                to="/login"
                 className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
                 onClick={toggleMenu}
               >
                 <LogIn size={18} />
-                <span>Sign In</span>
+                <span>Login</span>
               </Link>
             </li>
             <li>
