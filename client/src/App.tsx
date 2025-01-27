@@ -1,11 +1,17 @@
-import Navbar from "./components/shared/Navbar"
 
+import AllRoutes from "./AllRoutes"
+import Header from "./components/Header"
+import { ThemeProvider } from "./components/theme-provider"
 
 function App() {
 
+
   return (
-    <div className="bg-black w-full h-screen">
-      <Navbar />
+    <div>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <Header />
+        <AllRoutes />
+      </ThemeProvider>
     </div>
   )
 }

@@ -5,6 +5,7 @@
     "@types/jsonwebtoken": "^9.0.7",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "react-router-dom": "^7.1.3"
   }
 }
