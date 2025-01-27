@@ -12,6 +12,7 @@ import ColourfulText from "@/components/ui/colourful-text"
 
 
 
+
 export default function Hero() {
   const [searchTerm, setSearchTerm] = useState("")
 
@@ -32,7 +33,7 @@ export default function Hero() {
           className="text-center"
         >
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-green-200 to-blue-200">
-            Find Your <ColourfulText text="Dream Job" /> Today
+            Find Your Dream Job Today
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-300">
             Connect with top employers and discover opportunities that match your skills and aspirations.
@@ -73,7 +74,8 @@ export default function Hero() {
           <div className="flex items-center justify-center bg-white bg-opacity-5 rounded-lg p-6 backdrop-blur-sm border border-white border-opacity-10 shadow-xl">
             <Briefcase className="h-10 w-10 text-blue-400 mr-4" />
             <div className="text-left">
-              <p className="text-2xl font-bold">10,000+</p>
+              <p className="text-2xl font-bold">   
+                 10,000+</p>
               <p className="text-gray-300">Job Listings</p>
             </div>
           </div>
@@ -95,7 +97,7 @@ export default function Hero() {
       </div>
       <InteractiveGridPattern
         className={cn(
-          "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)] opacity-65",
+          "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)] opacity-40",
         )} 
         width={20}
         height={20}
