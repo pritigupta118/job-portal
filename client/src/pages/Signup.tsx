@@ -15,20 +15,22 @@ import {
 import { z } from "zod"
 import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import axios from "axios"
+
 
 const formSchema = z.object({
   fullName: z.string().min(1, "Full Name is required"),
   email: z.string().email("Invalid email address"),
   phoneNumber: z.string().min(10, "Phone Number must be at least 10 digits"),
   password: z.string().min(6, "Password must be at least 6 characters"),
-  role: z.enum(["Student", "Recruiter"]),
+  role: z.enum(["student", "recruiter"]),
   file: z.string(),
 })
 
 
 const Signup = () => {
-
+  const navigate = useNavigate()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,15 +38,29 @@ const Signup = () => {
       email: "",
       phoneNumber: "",
       password: "",
-      role: "Student",
+      role: "student",
       file: "",
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+  
+    try {
+      const response = await axios.post("http://localhost:8000/user/register", values,{
+        headers: {
+          "Content-Type": "application/json"
+        },
+        withCredentials: true
+      })
+
+      if (response.data.success) {
+        navigate('/')
+      }
+      
+    } catch (error) {
+      console.log(error)
+
+    }
   }
 
   return (
@@ -132,7 +148,7 @@ const Signup = () => {
                     >
                       <FormItem className="flex items-center space-x-1 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value="Student" />
+                          <RadioGroupItem value="student" />
                         </FormControl>
                         <FormLabel className="font-normal">
                           Student
@@ -140,7 +156,7 @@ const Signup = () => {
                       </FormItem>
                       <FormItem className="flex items-center space-x-1 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value="Recruiter" />
+                          <RadioGroupItem value="recruiter" />
                         </FormControl>
                         <FormLabel className="font-normal">
                           Recruiter

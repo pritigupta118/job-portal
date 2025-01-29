@@ -46,7 +46,7 @@ try {
     secure: true 
   });
 
-  res.status(201).json({ message: "User created successfully", newUser });
+  return res.status(201).json({ message: "User created successfully",success: true , newUser });
 
 } catch (error) {
   return res.status(500).send({ message: "Error signing up!", error: error });
@@ -98,7 +98,7 @@ try {
       secure: true 
     });
 
-    return res.status(200).json({ message: "Login successful", user});
+    return res.status(200).json({ message: "Login successful", user,  success: true});
 
     
 } catch (error) {
