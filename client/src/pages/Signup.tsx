@@ -17,6 +17,11 @@ import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import { toast } from "sonner"
+import { useDispatch, useSelector } from "react-redux"
+import { setLoading } from "@/redux/slices/authSlice"
+import { RootState } from "@/redux/store"
+import { LoaderCircle } from "lucide-react"
 
 
 const formSchema = z.object({
@@ -30,7 +35,9 @@ const formSchema = z.object({
 
 
 const Signup = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+  const {loading} = useSelector((state: RootState)=> state.authSlice)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,6 +53,7 @@ const Signup = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
   
     try {
+      dispatch(setLoading(true))
       const response = await axios.post("http://localhost:8000/user/register", values,{
         headers: {
           "Content-Type": "application/json"
@@ -54,12 +62,20 @@ const Signup = () => {
       })
 
       if (response.data.success) {
+        toast.success(response.data.message);
         navigate('/')
       }
       
     } catch (error) {
       console.log(error)
-
+      if (axios.isAxiosError(error) && error.response) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
+    }
+    finally{
+      dispatch(setLoading(false))
     }
   }
 
@@ -184,7 +200,7 @@ const Signup = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full mt-4">Submit</Button>
+            <Button disabled={loading} type="submit" className="w-full mt-4">{loading ? <LoaderCircle className="animate-spin"/> : "signup"}</Button>
           </form>
         </Form>
 
