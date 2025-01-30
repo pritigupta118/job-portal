@@ -7,6 +7,8 @@ import { Search, Briefcase, Users, Globe, Star } from "lucide-react"
 import { motion } from "framer-motion"
 import { Marquee } from "@/components/ui/marquee"
 import { Particles } from "@/components/ui/particles"
+import CategoryCarousel from "@/components/CategoryCarousel"
+import LatestJobs from "@/components/LatestJobs"
 
 
 
@@ -126,8 +128,15 @@ export default function Hero() {
               Search
             </Button>
           </div>
-        </motion.form>
 
+          
+        </motion.form>
+        <div className="mx-auto max-w-7xl">
+     
+            <CategoryCarousel/>
+        
+            <LatestJobs/>
+          </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

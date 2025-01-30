@@ -54,7 +54,7 @@ const Signup = () => {
   
     try {
       dispatch(setLoading(true))
-      const response = await axios.post("http://localhost:8000/user/register", values,{
+      const response = await axios.post("http://localhost:8001/user/register", values,{
         headers: {
           "Content-Type": "application/json"
         },
