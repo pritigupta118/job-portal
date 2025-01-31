@@ -46,7 +46,7 @@ const Login = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       dispatch(setLoading(true))
-      const response = await axios.post("http://localhost:8001/user/login", values, {
+      const response = await axios.post("http://localhost:4000/user/login", values, {
         headers: {
           "Content-Type": "application/json"
         },

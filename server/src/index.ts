@@ -29,8 +29,7 @@ app.use("/application", applicationRouter);
 dbConnect();
 
 
- const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-
+app.listen(4000, () => {
+  console.log("app is listening to port 4000");
+  
 })

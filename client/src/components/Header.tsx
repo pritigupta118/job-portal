@@ -36,17 +36,15 @@ const Header = () => {
                   to="/jobs"
                   className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors"
                 >
-                  <Briefcase size={18} />
                   <span>Find Jobs</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/companies"
+                  to="/browse"
                   className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors"
                 >
-                  <Building size={18} />
-                  <span>Companies</span>
+                  <span>Browse</span>
                 </Link>
               </li>
               <li>
@@ -54,7 +52,6 @@ const Header = () => {
                  to="/login"
                   className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors"
                 >
-                  <LogIn size={18} />
                   <span>Login</span>
                 </Link>
               </li>
@@ -63,7 +60,6 @@ const Header = () => {
                   to="/signup"
                   className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors"
                 >
-                  <UserPlus size={18} />
                   <span>Signup</span>
                 </Link>
               </li>

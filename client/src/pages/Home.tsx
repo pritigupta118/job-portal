@@ -9,6 +9,7 @@ import { Marquee } from "@/components/ui/marquee"
 import { Particles } from "@/components/ui/particles"
 import CategoryCarousel from "@/components/CategoryCarousel"
 import LatestJobs from "@/components/LatestJobs"
+import Footer from "@/components/Footer"
 
 
 
@@ -129,14 +130,14 @@ export default function Hero() {
             </Button>
           </div>
 
-          
+
         </motion.form>
         <div className="mx-auto max-w-7xl">
-     
-            <CategoryCarousel/>
-        
-            <LatestJobs/>
-          </div>
+
+          <CategoryCarousel />
+
+          <LatestJobs />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -190,6 +191,8 @@ export default function Hero() {
         color={"#ffffff"}
         refresh
       />
+
+      <Footer />
 
     </section>
   )
