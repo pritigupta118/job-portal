@@ -20,7 +20,7 @@ import axios from "axios"
 import { toast } from "sonner"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/redux/store"
-import { setLoading } from "@/redux/slices/authSlice"
+import { setLoading, setUser } from "@/redux/slices/authSlice"
 import { LoaderCircle } from "lucide-react"
 
 const formSchema = z.object({
@@ -56,6 +56,7 @@ const Login = () => {
       console.log(response.data)
 
       if (response.data.success) {
+        dispatch(setUser(response.data.user))
         toast.success(response.data.message);
         navigate('/')
       }
